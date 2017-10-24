@@ -1,0 +1,44 @@
+package control;
+
+import java.util.List;
+
+import javax.ejb.EJB;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+
+import ejb.OrcamentoEJBLocal;
+import model.Orcamento;
+
+@ManagedBean(name = "crtorcamento")
+@ViewScoped
+public class CrtOrcamento {
+	@EJB
+	private OrcamentoEJBLocal orcamentoEJB;
+
+	private Orcamento model = new Orcamento();
+
+	public Orcamento getModel() {
+		return model;
+	}
+
+	public void setModel(Orcamento model) {
+		this.model = model;
+	}
+
+	public List<Orcamento> todosOrcamentos() {
+		return orcamentoEJB.todosOrcamentos();
+	}
+
+	public void insert() {
+		model = new Orcamento();
+	}
+
+	public void save() {
+		orcamentoEJB.save(model);
+	}
+
+	public void remove() {
+		if (model != null)
+			orcamentoEJB.remove(model);
+	}
+}

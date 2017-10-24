@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+  	  xmlns:p="http://primefaces.org/ui">
+	<h:head>
+		<meta charset="UTF-8"/>
+		<title>Cadastro: Serviço</title> <!-- Titulo da Pagina -->
+	</h:head>
+	<body>
+	
+		<h:form id="formTable">
+			<p:panel header="Cadastro: Serviço">
+				<p:dataTable id="table" value="#{crtservico.todosServicos()}"
+						var="umservico" selectionMode="single"
+						selection="#{crtservico.model}"
+						rowKey="#{umservico.identificador}">
+						
+					<p:column headerText="ID">
+						<h:outputText value="#{umservico.identificador}"/>
+					</p:column>
+					<p:column headerText="Nome">
+	       				<h:outputText value="#{umservico.nome}"/>
+	   				 </p:column>
+	   					
+	   					<f:facet name="header">
+	   						<p:toolbar>
+	   							<f:facet name="left">
+			   				 	<p:commandButton value="Incluir" id="cbIncluir"
+			   				 		oncomplete="PF('dlg1').show()" action="#{crtservico.insert()}"
+			   				 		update=":form:formDetail"/>
+			   				 		
+			   				 	<p:commandButton value="Alterar" id="cbAlterar"
+			   				 		update=":form:formDetail" icon="ui-icon-extlink"
+			   				 		oncomplete="PF('dlg1').show()"/>	
+			   				 		
+			   				 	<p:commandButton value="Excluir" id="cbExcluir"
+			   				 		icon="ui-icon-extlink" oncomplete="PF('dlgRemove').show()"/>
+			   				 		</f:facet>
+	   				 		</p:toolbar>
+	   					</f:facet>
+				</p:dataTable>
+			</p:panel>
+		</h:form>
+		
+		<h:form>
+			<p:dialog width="500" height="50" id="removeDialog" modal="true"
+			header="Confirmar exclusão do registro?" widgetVar="dlgRemove">
+				<h:form id="formRemove">
+					<h:panelGrid columns="2">
+						<h:commandButton action="#{crtservico.remove()}" update=":formTable" value="OK"/>
+						<h:commandButton immediate="true" update=":formTable" value="Cancel"/>
+					</h:panelGrid>
+				</h:form>
+			</p:dialog>
+		</h:form>
+		
+		<h:form id="form">
+			<p:dialog width="500" height="300" id="detailServico" modal="true" 
+				header="Dados do Servico" widgetVar="dlg1">
+				<h:panelGrid id="formDetail" columns="2"> 
+					
+					<h:outputLabel value="Identificador"/>
+					<p:inputText value="#{crtservico.model.identificador}"/>
+					
+					<h:outputLabel value="Nome"/>
+					<p:inputText value="#{crtservico.model.nome}"/>
+					
+					<p:commandButton value="OK"
+						id="cbOK" onsuccess="PF('dlg1').hide()"
+						action="#{crtservico.save()}" update=":formTable:table"/>
+						
+					<p:commandButton value="Cancelar"
+						id="cbCancelar" onsuccess="PF('dlg1').hide()"/>
+				</h:panelGrid>
+				
+			</p:dialog>
+		</h:form>
+	</body>
+</html>
