@@ -6,28 +6,37 @@
   	  xmlns:p="http://primefaces.org/ui">
 	<h:head>
 		<meta charset="UTF-8"/>
-		<title>Cadastro: Orçamento</title> <!-- Titulo da Pagina -->
+		<title>Cadastro: Veículo</title> <!-- Titulo da Pagina -->
 	</h:head>
 	<body>
 	
 		<h:form id="formTable">
-			<p:panel header="Cadastro: Cadastro: Orçamento">
-				<p:dataTable id="table" value="#{crtorcamento.todosOrcamentos()}"
-						var="umorcamento" selectionMode="single"
-						selection="#{crtorcamento.model}"
-						rowKey="#{umorcamento.identificador}">
+			<p:panel header="Cadastro: Veículo">
+				<p:dataTable id="table" value="#{crtveiculo.todosVeiculos()}"
+						var="umveiculo" selectionMode="single"
+						selection="#{crtveiculo.model}"
+						rowKey="#{umveiculo.identificador}">
 						
 					<p:column headerText="ID">
-						<h:outputText value="#{umorcamento.identificador}"/>
+						<h:outputText value="#{umveiculo.identificador}"/>
 					</p:column>
 					<p:column headerText="Nome">
-	       				<h:outputText value="#{umorcamento.nome}"/>
-	   				 </p:column>
+	       				<h:outputText value="#{umveiculo.nome}"/>
+	   				</p:column>
+	   				<p:column headerText="Cliente">
+	       				<h:outputText value="#{umveiculo.cliente}"/>
+	   				</p:column>
+	   				<p:column headerText="Placa">
+	       				<h:outputText value="#{umveiculo.placa}"/>
+	   				</p:column>
+	   				
+	   				
+	   				
 	   					<f:facet name="header">
 	   						<p:toolbar>
 	   							<f:facet name="left">
 			   				 	<p:commandButton value="Incluir" id="cbIncluir"
-			   				 		oncomplete="PF('dlg1').show()" action="#{crtorcamento.insert()}"
+			   				 		oncomplete="PF('dlg1').show()" action="#{crtveiculo.insert()}"
 			   				 		update=":form:formDetail"/>
 			   				 		
 			   				 	<p:commandButton value="Alterar" id="cbAlterar"
@@ -36,7 +45,7 @@
 			   				 		
 			   				 	<p:commandButton value="Excluir" id="cbExcluir"
 			   				 		icon="ui-icon-extlink" oncomplete="PF('dlgRemove').show()"/>
-			   				 		</f:facet>
+			   				 	</f:facet>
 	   				 		</p:toolbar>
 	   					</f:facet>
 				</p:dataTable>
@@ -48,7 +57,7 @@
 			header="Confirmar exclusão do registro?" widgetVar="dlgRemove">
 				<h:form id="formRemove">
 					<h:panelGrid columns="2">
-						<h:commandButton action="#{crtorcamento.remove()}" update=":formTable" value="OK"/>
+						<h:commandButton action="#{crtveiculo.remove()}" update=":formTable" value="OK"/>
 						<h:commandButton immediate="true" update=":formTable" value="Cancel"/>
 					</h:panelGrid>
 				</h:form>
@@ -56,19 +65,37 @@
 		</h:form>
 		
 		<h:form id="form">
-			<p:dialog width="500" height="300" id="detailOrcamento" modal="true" 
-				header="Dados do Orçamento" widgetVar="dlg1">
+			<p:dialog width="500" height="300" id="detailVeiculo" modal="true" 
+				header="Dados do VeÍculo" widgetVar="dlg1">
 				<h:panelGrid id="formDetail" columns="2"> 
 					
 					<h:outputLabel value="Identificador"/>
-					<p:inputText value="#{crtorcamento.model.identificador}"/>
+					<p:inputText value="#{crtveiculo.model.identificador}"/>
 					
 					<h:outputLabel value="Nome"/>
-					<p:inputText value="#{crtorcamento.model.nome}"/>
+					<p:inputText value="#{crtveiculo.model.nome}"/>
+					
+					<h:outputLabel value="Cliente"/>
+					<p:inputText value="#{crtveiculo.model.cliente}"/>
+					
+					<h:outputLabel value="Marca"/>
+					<p:inputText value="#{crtveiculo.model.marca}"/>
+					
+					<h:outputLabel value="Ano"/>
+					<p:inputText value="#{crtveiculo.model.ano}"/>
+					
+					<h:outputLabel value="Chassi"/>
+					<p:inputText value="#{crtveiculo.model.chassis}"/>
+					
+					<h:outputLabel value="Placa"/>
+					<p:inputText value="#{crtveiculo.model.placa}"/>
+					
+					<h:outputLabel value="KM Atual"/>
+					<p:inputText value="#{crtveiculo.model.kmAtual}"/>
 					
 					<p:commandButton value="OK"
 						id="cbOK" onsuccess="PF('dlg1').hide()"
-						action="#{crtorcamento.save()}" update=":formTable:table"/>
+						action="#{crtveiculo.save()}" update=":formTable:table"/>
 						
 					<p:commandButton value="Cancelar"
 						id="cbCancelar" onsuccess="PF('dlg1').hide()"/>

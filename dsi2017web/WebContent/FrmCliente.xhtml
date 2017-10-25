@@ -22,10 +22,12 @@
 					</p:column>
 					<p:column headerText="Nome">
 	       				<h:outputText value="#{umcliente.nome}"/>
-	   				 </p:column>
-	   				 <p:column headerText="Sexo">
+	   				</p:column>
+	   				<p:column headerText="Sexo">
 	       				<h:outputText value='#{(umcliente.sexo==1)?"Masculino":"Feminino"}' />
-	   				 </p:column>
+	   				</p:column>
+	   				
+	   				 
 	   					<f:facet name="header">
 	   						<p:toolbar>
 	   							<f:facet name="left">
@@ -39,7 +41,7 @@
 			   				 		
 			   				 	<p:commandButton value="Excluir" id="cbExcluir"
 			   				 		icon="ui-icon-extlink" oncomplete="PF('dlgRemove').show()"/>
-			   				 		</f:facet>
+			   				 	</f:facet>
 	   				 		</p:toolbar>
 	   					</f:facet>
 				</p:dataTable>
@@ -63,11 +65,41 @@
 				header="Dados do Cliente" widgetVar="dlg1">
 				<h:panelGrid id="formDetail" columns="2"> 
 					
+					<h:outputLabel value="Identificador"/>
+					<p:inputText value="#{crtcliente.model.identificador}"/>
+					
 					<h:outputLabel value="Nome"/>
 					<p:inputText value="#{crtcliente.model.nome}"/>
 					
 					<h:outputLabel value="Sexo"/>
 					<p:inputText value="#{crtcliente.model.sexo}"/>
+					
+					<h:outputLabel value="Telefone Fixo"/>
+					<p:inputText value="#{crtcliente.model.telefoneFixo}"/>
+					
+					<h:outputLabel value="Telefone Celular"/>
+					<p:inputText value="#{crtcliente.model.telefoneCelular}"/>
+					
+					<h:outputLabel value="Data Nascimento"/>
+					<p:inputText value="#{crtcliente.model.dataNascimento}"/>
+					
+					<h:outputLabel value="Endereço"/>
+					<p:inputText value="#{crtcliente.model.endereco}"/>
+					
+					<h:outputLabel value="CNPJ"/>
+					<p:inputText value="#{crtcliente.model.cnpj}"/>
+					
+					<h:outputLabel value="CPF"/>
+					<p:inputText value="#{crtcliente.model.cpf}"/>
+					
+					<h:outputLabel value="Cidade"/>
+					<p:inputText value="#{crtcliente.model.cidade}"/>
+					
+					<h:outputLabel value="Estado"/>
+					<p:inputText value="#{crtcliente.model.estado}"/>
+					
+					<h:outputLabel value="CEP"/>
+					<p:inputText value="#{crtcliente.model.cep}"/>
 					
 					<p:commandButton value="OK"
 						id="cbOK" onsuccess="PF('dlg1').hide()"

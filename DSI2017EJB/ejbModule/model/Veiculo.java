@@ -6,7 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
+@NamedQueries({ @NamedQuery(name = "todosVeiculos", query = "SELECT g FROM Veiculo g") })
 @Entity
 public class Veiculo {
 
