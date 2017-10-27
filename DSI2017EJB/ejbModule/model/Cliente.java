@@ -33,6 +33,8 @@ public class Cliente {
 	private String estado;
 	private String cep;
 	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.REFRESH })
+	private Veiculo veiculo;
+	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.REFRESH })
 	private Oficina oficina;
 
 	public long getId() {
@@ -138,7 +140,15 @@ public class Cliente {
 	public void setCep(String cep) {
 		this.cep = cep;
 	}
+	
+	public Veiculo getVeiculo() {
+		return veiculo;
+	}
 
+	public void setVeiculo(Veiculo veiculo) {
+		this.veiculo = veiculo;
+	}
+	
 	public Oficina getOficina() {
 		return oficina;
 	}
