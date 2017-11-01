@@ -56,13 +56,34 @@
 		</h:form>
 		
 		<h:form id="form">
-			<p:dialog width="500" height="300" id="detailOficina" modal="true" 
+			<p:dialog width="500" height="330" id="detailOficina" modal="true" 
 				header="Dados da Oficina" widgetVar="dlg1">
 				<h:panelGrid id="formDetail" columns="2"> 
 					
+					<h:outputLabel value="Identificador"/>
+					<p:inputText value="#{crtoficina.model.identificador}"/>
+					
 					<h:outputLabel value="Nome"/>
 					<p:inputText value="#{crtoficina.model.nomeReal}"/>
-
+					
+					<h:outputLabel value="Nome Fantasia"/>
+					<p:inputText value="#{crtoficina.model.nomeFantasia}"/>
+					
+					<h:outputLabel value="CNPJ"/>
+					<p:inputText value="#{crtoficina.model.cnpj}"/>
+					
+					<h:outputLabel value="CEP"/>
+					<p:inputText value="#{crtoficina.model.cep}"/>
+					
+					<h:outputLabel value="Endereço"/>
+					<p:inputText value="#{crtoficina.model.endereco}"/>
+					
+					<h:outputLabel value="Cidade"/>
+					<p:inputText value="#{crtoficina.model.cidade}"/>
+					
+					<h:outputLabel value="Estado"/>
+					<p:inputText value="#{crtoficina.model.estado}"/>
+					
 					<p:commandButton value="OK"
 						id="cbOK" onsuccess="PF('dlg1').hide()"
 						action="#{crtoficina.save()}" update=":formTable:table"/>
