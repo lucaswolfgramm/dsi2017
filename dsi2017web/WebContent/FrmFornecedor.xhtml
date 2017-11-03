@@ -56,13 +56,46 @@
 		</h:form>
 		
 		<h:form id="form">
-			<p:dialog width="500" height="300" id="detailFornecedor" modal="true" 
+			<p:dialog width="500" height="350" id="detailFornecedor" modal="true" 
 				header="Dados da Fornecedor" widgetVar="dlg1">
 				<h:panelGrid id="formDetail" columns="2"> 
 					
+					<h:outputLabel value="Identificador"/>
+					<p:inputText value="#{crtfornecedor.model.identificador}"/>
+					
 					<h:outputLabel value="Nome"/>
 					<p:inputText value="#{crtfornecedor.model.nome}"/>
-
+					
+					<h:outputLabel value="CNPJ"/>
+					<p:inputText value="#{crtfornecedor.model.cnpj}"/>
+					
+					<h:outputLabel value="CPF"/>
+					<p:inputText value="#{crtfornecedor.model.cpf}"/>
+					
+					<h:outputLabel value="Razão Social"/>
+					<p:inputText value="#{crtfornecedor.model.razaoSocial}"/>
+					
+					<h:outputLabel value="Telefone Fixo"/>
+					<p:inputText value="#{crtfornecedor.model.telefoneFixo}"/>
+					
+					<h:outputLabel value="Telefone Celular"/>
+					<p:inputText value="#{crtfornecedor.model.telefoneCelular}"/>
+					
+					<h:outputLabel value="CEP"/>
+					<p:inputText value="#{crtfornecedor.model.cep}"/>
+					
+					<h:outputLabel value="Endereço"/>
+					<p:inputText value="#{crtfornecedor.model.endereco}"/>
+					
+					<h:outputLabel value="Cidade"/>
+					<p:inputText value="#{crtfornecedor.model.cidade}"/>
+					
+					<h:outputLabel value="Estado"/>
+					<p:inputText value="#{crtfornecedor.model.estado}"/>
+					
+					<h:outputLabel value="Status"/>
+					<p:inputText value="#{crtfornecedor.model.status}"/>		
+					
 					<p:commandButton value="OK"
 						id="cbOK" onsuccess="PF('dlg1').hide()"
 						action="#{crtfornecedor.save()}" update=":formTable:table"/>
