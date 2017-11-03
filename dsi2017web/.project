@@ -3,6 +3,8 @@
 	<name>dsi2017web</name>
 	<comment></comment>
 	<projects>
+		<project>DSI2017EJB</project>
+		<project>DSI2017SERVER</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

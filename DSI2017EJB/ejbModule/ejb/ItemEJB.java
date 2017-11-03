@@ -35,7 +35,7 @@ public class ItemEJB implements ItemEJBLocal {
 
 	@Override
 	public void save(Item item) {
-		if (em.find(Item.class, item.getIdentificador()) == null) {
+		if (em.find(Item.class, item.getOid()) == null) {
 			// insert
 			em.persist(item);
 		} else {
@@ -46,6 +46,6 @@ public class ItemEJB implements ItemEJBLocal {
 
 	@Override
 	public void remove(Item item) {
-		em.remove(em.find(Item.class, item.getIdentificador()));
+		em.remove(em.find(Item.class, item.getOid()));
 	}
 }
