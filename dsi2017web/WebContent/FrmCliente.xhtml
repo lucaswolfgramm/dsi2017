@@ -15,7 +15,7 @@
 				<p:dataTable id="table" value="#{crtcliente.todosClientes()}"
 						var="umcliente" selectionMode="single"
 						selection="#{crtcliente.model}"
-						rowKey="#{umcliente.id}">
+						rowKey="#{umcliente.oid}">
 						
 					<p:column headerText="ID">
 						<h:outputText value="#{umcliente.identificador}"/>
@@ -49,7 +49,7 @@
 		</h:form>
 		
 		<h:form>
-			<p:dialog width="500" height="50" id="removeDialog" modal="true"
+			<p:dialog width="500" height="50" id="removeDialog" modal="false"
 			header="Confirmar exclusão do registro?" widgetVar="dlgRemove">
 				<h:form id="formRemove">
 					<h:panelGrid columns="2">

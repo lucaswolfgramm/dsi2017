@@ -36,7 +36,7 @@ public class OficinaEJB implements OficinaEJBLocal {
 
 	@Override
 	public void save(Oficina oficina) {
-		if (em.find(Oficina.class, oficina.getIdentificador()) == null) {
+		if (em.find(Oficina.class, oficina.getOid()) == null) {
 			// insert
 			em.persist(oficina);
 		} else {

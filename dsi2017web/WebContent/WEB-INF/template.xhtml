@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		<p:layout style="min-width:1020px;max-width:1020px;min-height:600px">
+			<p:layoutUnit position="north" size="100">
+				<h:graphicImage
+					url="http://www.univille.edu.br/templates/source/8/images/pages/logo.png"
+					width="90px" height="81px" />
+	
+			</p:layoutUnit>
+	
+			<p:layoutUnit position="west" size="220">
+				<ui:insert name="menu">
+					<h:form>
+						<p:menu style="width: 200px">
+							<p:submenu label="Menu">
+								<p:menuitem value="Produtos" icon="ui-icon-contact"
+									url="FrmProduto.xhtml" />
+								<p:menuitem value="Clientes" icon="ui-icon-contact"
+									url="Cliente.xhtml" />
+								<p:menuitem value="Cidade" icon="ui-icon-contact"
+									url="Cidade.xhtml" />
+								<p:menuitem value="Logoff" icon="ui-icon-contact"
+									action="#{crtTemplate.dologoff()}" />
+	
+							</p:submenu>
+						</p:menu>
+						<h:commandLink value="Relatório Clientes"
+							action="#{crtTemplate.report()}" />
+					</h:form>
+				</ui:insert>
+			</p:layoutUnit>
+			<p:layoutUnit position="center" style="z-index:1001">
+				<ui:insert name="centro">
+				</ui:insert>
+			</p:layoutUnit>
+		</p:layout>
+	</body>
+</html>

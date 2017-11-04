@@ -35,7 +35,7 @@ public class VeiculoEJB implements VeiculoEJBLocal {
 
 	@Override
 	public void save(Veiculo veiculo) {
-		if (em.find(Veiculo.class, veiculo.getIdentificador()) == null) {
+		if (em.find(Veiculo.class, veiculo.getOid()) == null) {
 			// insert
 			em.persist(veiculo);
 		} else {

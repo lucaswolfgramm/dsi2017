@@ -35,7 +35,7 @@ public class OrcamentoEJB implements OrcamentoEJBLocal {
 
 	@Override
 	public void save(Orcamento orcamento) {
-		if (em.find(Orcamento.class, orcamento.getIdentificador()) == null) {
+		if (em.find(Orcamento.class, orcamento.getOid()) == null) {
 			// insert
 			em.persist(orcamento);
 		} else {

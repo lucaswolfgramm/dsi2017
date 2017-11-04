@@ -17,7 +17,7 @@ public class Cliente {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private long oid;
 	private String identificador;
 
 	@Column(length = 1000)
@@ -37,12 +37,12 @@ public class Cliente {
 	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.REFRESH })
 	private Oficina oficina;
 
-	public long getId() {
-		return id;
+	public long getOid() {
+		return oid;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setOid(long oid) {
+		this.oid = oid;
 	}
 
 	public String getIdentificador() {

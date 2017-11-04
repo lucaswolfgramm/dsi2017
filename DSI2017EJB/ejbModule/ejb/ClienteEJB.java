@@ -35,7 +35,7 @@ public class ClienteEJB implements ClienteEJBLocal {
 
 	@Override
 	public void save(Cliente cliente) {
-		if (em.find(Cliente.class, cliente.getId()) == null) {
+		if (em.find(Cliente.class, cliente.getOid()) == null) {
 			// insert
 			em.persist(cliente);
 		} else {
@@ -46,6 +46,6 @@ public class ClienteEJB implements ClienteEJBLocal {
 
 	@Override
 	public void remove(Cliente cliente) {
-		em.remove(em.find(Cliente.class, cliente.getId()));
+		em.remove(em.find(Cliente.class, cliente.getOid()));
 	}
 }

@@ -35,7 +35,7 @@ public class FornecedorEJB implements FornecedorEJBLocal {
 
 	@Override
 	public void save(Fornecedor fornecedor) {
-		if (em.find(Fornecedor.class, fornecedor.getIdentificador()) == null) {
+		if (em.find(Fornecedor.class, fornecedor.getOid()) == null) {
 			// insert
 			em.persist(fornecedor);
 		} else {

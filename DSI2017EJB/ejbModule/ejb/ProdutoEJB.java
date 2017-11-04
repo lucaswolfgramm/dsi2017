@@ -35,7 +35,7 @@ public class ProdutoEJB implements ProdutoEJBLocal {
 
 	@Override
 	public void save(Produto produto) {
-		if (em.find(Produto.class, produto.getIdentificador()) == null) {
+		if (em.find(Produto.class, produto.getOid()) == null) {
 			// insert
 			em.persist(produto);
 		} else {
