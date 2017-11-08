@@ -8,6 +8,8 @@
 		<meta charset="UTF-8"/>
 		<title>Cadastro: Veículo</title> <!-- Titulo da Pagina -->
 	</h:head>
+		<ui:decorate template="template.xhtml">
+			<ui:define name="centro">
 	<body>
 	
 		<h:form id="formTable">
@@ -63,7 +65,7 @@
 		</h:form>
 		
 		<h:form id="form">
-			<p:dialog width="500" height="350" id="detailVeiculo" modal="true" 
+			<p:dialog width="500" height="350" id="detailVeiculo" modal="false" 
 				header="Dados do VeÍculo" widgetVar="dlg1">
 				<h:panelGrid id="formDetail" columns="2"> 
 					
@@ -102,4 +104,6 @@
 			</p:dialog>
 		</h:form>
 	</body>
+	</ui:define>
+	</ui:decorate>
 </html>

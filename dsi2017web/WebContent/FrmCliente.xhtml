@@ -8,108 +8,112 @@
 		<meta charset="UTF-8"/>
 		<title>Cadastro: Cliente</title> <!-- Titulo da Pagina -->
 	</h:head>
-	<body>
-	
-		<h:form id="formTable">
-			<p:panel header="Cadastro: Cliente">
-				<p:dataTable id="table" value="#{crtcliente.todosClientes()}"
-						var="umcliente" selectionMode="single"
-						selection="#{crtcliente.model}"
-						rowKey="#{umcliente.oid}">
+		<ui:decorate template="template.xhtml">
+			<ui:define name="centro">	
+		<body>
+			
+			<h:form id="formTable">
+				<p:panel header="Cadastro: Cliente">
+					<p:dataTable id="table" value="#{crtcliente.todosClientes()}"
+							var="umcliente" selectionMode="single"
+							selection="#{crtcliente.model}"
+							rowKey="#{umcliente.oid}">
+							
+						<p:column headerText="ID">
+							<h:outputText value="#{umcliente.identificador}"/>
+						</p:column>
+						<p:column headerText="Nome">
+		       				<h:outputText value="#{umcliente.nome}"/>
+		   				</p:column>
+		   				<p:column headerText="Sexo">
+		       				<h:outputText value='#{(umcliente.sexo==1)?"Masculino":"Feminino"}' />
+		   				</p:column>
+		   				
+		   				 
+		   					<f:facet name="header">
+		   						<p:toolbar>
+		   							<f:facet name="left">
+				   				 	<p:commandButton value="Incluir" id="cbIncluir"
+				   				 		oncomplete="PF('dlg1').show()" action="#{crtcliente.insert()}"
+				   				 		update=":form:formDetail"/>
+				   				 		
+				   				 	<p:commandButton value="Alterar" id="cbAlterar"
+				   				 		update=":form:formDetail" icon="ui-icon-extlink"
+				   				 		oncomplete="PF('dlg1').show()"/>	
+				   				 		
+				   				 	<p:commandButton value="Excluir" id="cbExcluir"
+				   				 		icon="ui-icon-extlink" oncomplete="PF('dlgRemove').show()"/>
+				   				 	</f:facet>
+		   				 		</p:toolbar>
+		   					</f:facet>
+					</p:dataTable>
+				</p:panel>
+			</h:form>
+			
+			<h:form>
+				<p:dialog width="500" height="50" id="removeDialog" modal="false"
+				header="Confirmar exclusão do registro?" widgetVar="dlgRemove">
+					<h:form id="formRemove">
+						<h:panelGrid columns="2">
+							<h:commandButton action="#{crtcliente.remove()}" update=":formTable" value="OK"/>
+							<h:commandButton immediate="true" update=":formTable" value="Cancel"/>
+						</h:panelGrid>
+					</h:form>
+				</p:dialog>
+			</h:form>
+			
+			<h:form id="form">
+				<p:dialog width="500" height="500" id="detailCliente" modal="false" 
+					header="Dados do Cliente" widgetVar="dlg1">
+					<h:panelGrid id="formDetail" columns="2"> 
 						
-					<p:column headerText="ID">
-						<h:outputText value="#{umcliente.identificador}"/>
-					</p:column>
-					<p:column headerText="Nome">
-	       				<h:outputText value="#{umcliente.nome}"/>
-	   				</p:column>
-	   				<p:column headerText="Sexo">
-	       				<h:outputText value='#{(umcliente.sexo==1)?"Masculino":"Feminino"}' />
-	   				</p:column>
-	   				
-	   				 
-	   					<f:facet name="header">
-	   						<p:toolbar>
-	   							<f:facet name="left">
-			   				 	<p:commandButton value="Incluir" id="cbIncluir"
-			   				 		oncomplete="PF('dlg1').show()" action="#{crtcliente.insert()}"
-			   				 		update=":form:formDetail"/>
-			   				 		
-			   				 	<p:commandButton value="Alterar" id="cbAlterar"
-			   				 		update=":form:formDetail" icon="ui-icon-extlink"
-			   				 		oncomplete="PF('dlg1').show()"/>	
-			   				 		
-			   				 	<p:commandButton value="Excluir" id="cbExcluir"
-			   				 		icon="ui-icon-extlink" oncomplete="PF('dlgRemove').show()"/>
-			   				 	</f:facet>
-	   				 		</p:toolbar>
-	   					</f:facet>
-				</p:dataTable>
-			</p:panel>
-		</h:form>
-		
-		<h:form>
-			<p:dialog width="500" height="50" id="removeDialog" modal="false"
-			header="Confirmar exclusão do registro?" widgetVar="dlgRemove">
-				<h:form id="formRemove">
-					<h:panelGrid columns="2">
-						<h:commandButton action="#{crtcliente.remove()}" update=":formTable" value="OK"/>
-						<h:commandButton immediate="true" update=":formTable" value="Cancel"/>
+						<h:outputLabel value="Identificador"/>
+						<p:inputText value="#{crtcliente.model.identificador}"/>
+						
+						<h:outputLabel value="Nome"/>
+						<p:inputText value="#{crtcliente.model.nome}"/>
+						
+						<h:outputLabel value="Sexo"/>
+						<p:inputText value="#{crtcliente.model.sexo}"/>
+						
+						<h:outputLabel value="Telefone Fixo"/>
+						<p:inputText value="#{crtcliente.model.telefoneFixo}"/>
+						
+						<h:outputLabel value="Telefone Celular"/>
+						<p:inputText value="#{crtcliente.model.telefoneCelular}"/>
+						
+						<h:outputLabel value="Data Nascimento"/>
+						<p:inputText value="#{crtcliente.model.dataNascimento}"/>
+						
+						<h:outputLabel value="Endereço"/>
+						<p:inputText value="#{crtcliente.model.endereco}"/>
+						
+						<h:outputLabel value="CNPJ"/>
+						<p:inputText value="#{crtcliente.model.cnpj}"/>
+						
+						<h:outputLabel value="CPF"/>
+						<p:inputText value="#{crtcliente.model.cpf}"/>
+						
+						<h:outputLabel value="Cidade"/>
+						<p:inputText value="#{crtcliente.model.cidade}"/>
+						
+						<h:outputLabel value="Estado"/>
+						<p:inputText value="#{crtcliente.model.estado}"/>
+						
+						<h:outputLabel value="CEP"/>
+						<p:inputText value="#{crtcliente.model.cep}"/>
+						
+						<p:commandButton value="OK"
+							id="cbOK" onsuccess="PF('dlg1').hide()"
+							action="#{crtcliente.save()}" update=":formTable:table"/>
+							
+						<p:commandButton value="Cancelar"
+							id="cbCancelar" onsuccess="PF('dlg1').hide()"/>
 					</h:panelGrid>
-				</h:form>
-			</p:dialog>
-		</h:form>
-		
-		<h:form id="form">
-			<p:dialog width="500" height="500" id="detailCliente" modal="true" 
-				header="Dados do Cliente" widgetVar="dlg1">
-				<h:panelGrid id="formDetail" columns="2"> 
 					
-					<h:outputLabel value="Identificador"/>
-					<p:inputText value="#{crtcliente.model.identificador}"/>
-					
-					<h:outputLabel value="Nome"/>
-					<p:inputText value="#{crtcliente.model.nome}"/>
-					
-					<h:outputLabel value="Sexo"/>
-					<p:inputText value="#{crtcliente.model.sexo}"/>
-					
-					<h:outputLabel value="Telefone Fixo"/>
-					<p:inputText value="#{crtcliente.model.telefoneFixo}"/>
-					
-					<h:outputLabel value="Telefone Celular"/>
-					<p:inputText value="#{crtcliente.model.telefoneCelular}"/>
-					
-					<h:outputLabel value="Data Nascimento"/>
-					<p:inputText value="#{crtcliente.model.dataNascimento}"/>
-					
-					<h:outputLabel value="Endereço"/>
-					<p:inputText value="#{crtcliente.model.endereco}"/>
-					
-					<h:outputLabel value="CNPJ"/>
-					<p:inputText value="#{crtcliente.model.cnpj}"/>
-					
-					<h:outputLabel value="CPF"/>
-					<p:inputText value="#{crtcliente.model.cpf}"/>
-					
-					<h:outputLabel value="Cidade"/>
-					<p:inputText value="#{crtcliente.model.cidade}"/>
-					
-					<h:outputLabel value="Estado"/>
-					<p:inputText value="#{crtcliente.model.estado}"/>
-					
-					<h:outputLabel value="CEP"/>
-					<p:inputText value="#{crtcliente.model.cep}"/>
-					
-					<p:commandButton value="OK"
-						id="cbOK" onsuccess="PF('dlg1').hide()"
-						action="#{crtcliente.save()}" update=":formTable:table"/>
-						
-					<p:commandButton value="Cancelar"
-						id="cbCancelar" onsuccess="PF('dlg1').hide()"/>
-				</h:panelGrid>
-				
-			</p:dialog>
-		</h:form>
-	</body>
+				</p:dialog>
+			</h:form>
+		</body>
+		</ui:define>
+	</ui:decorate>
 </html>

@@ -1,43 +1,50 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="ISO-8859-1">
-		<title>Insert title here</title>
-	</head>
-	<body>
-		<p:layout style="min-width:1020px;max-width:1020px;min-height:600px">
-			<p:layoutUnit position="north" size="100">
-				<h:graphicImage
-					url="http://www.univille.edu.br/templates/source/8/images/pages/logo.png"
-					width="90px" height="81px" />
-	
-			</p:layoutUnit>
-	
-			<p:layoutUnit position="west" size="220">
-				<ui:insert name="menu">
-					<h:form>
-						<p:menu style="width: 200px">
-							<p:submenu label="Menu">
-								<p:menuitem value="Produtos" icon="ui-icon-contact"
-									url="FrmProduto.xhtml" />
-								<p:menuitem value="Clientes" icon="ui-icon-contact"
-									url="Cliente.xhtml" />
-								<p:menuitem value="Cidade" icon="ui-icon-contact"
-									url="Cidade.xhtml" />
-								<p:menuitem value="Logoff" icon="ui-icon-contact"
-									action="#{crtTemplate.dologoff()}" />
-	
-							</p:submenu>
-						</p:menu>
-						<h:commandLink value="Relat�rio Clientes"
-							action="#{crtTemplate.report()}" />
-					</h:form>
-				</ui:insert>
-			</p:layoutUnit>
-			<p:layoutUnit position="center" style="z-index:1001">
-				<ui:insert name="centro">
-				</ui:insert>
-			</p:layoutUnit>
-		</p:layout>
-	</body>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+ 
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Meu Sistema</title>
+        <style type="text/css">
+            body {background-color: #eeeeee; font-size: 12px}
+        </style> 
+    </h:head>
+    <h:body >
+        <div align="center">
+            <p:layout style="min-width:1350px;max-width:1320px;min-height:900px">  
+                <p:layoutUnit position="north" size="170">  
+                    <h:graphicImage url="https://www.freelogoservices.com/api/main/ph/zjHl2lgef9cYrQL0JFa7kzbw2vuDqRdKmxvO0jp9OXdE9g5shnN1i...Bv9ettdV9dsBUGw0pY" width="160px" height="153px"/>
+                    
+                </p:layoutUnit>  
+ 
+                <p:layoutUnit position="west" size="220">  
+                    <ui:insert name="menu">
+                        <h:form>
+                            <p:menu style="width: 200px">
+                                <p:submenu label="Menu">
+                                	<p:menuitem value="Clientes" icon="ui-icon-contact" url="FrmCliente.xhtml"/> 
+                                    <p:menuitem value="Fornecedor" icon="ui-icon-contact" url="FrmOficina.xhtml"/>
+                                    <p:menuitem value="Item" icon="ui-icon-contact" url="FrmItem.xhtml"/>
+                                    <p:menuitem value="Produtos" icon="ui-icon-contact" url="FrmProduto.xhtml"/>
+                                    <p:menuitem value="Oficina" icon="ui-icon-contact" url="FrmOficina.xhtml"/>
+                                    <p:menuitem value="Orçamento" icon="ui-icon-contact" url="FrmOrcamento.xhtml"/>
+                                    <p:menuitem value="Serviço" icon="ui-icon-contact" url="FrmServico.xhtml"/>
+                                    <p:menuitem value="Logoff" icon="ui-icon-contact" action="#{crtTemplate.dologoff()}"/>
+                                    
+                                </p:submenu>
+                            </p:menu>
+                            <h:commandLink value="Relatório Clientes" action="#{crtTemplate.report()}" />
+                        </h:form>
+                    </ui:insert>
+                </p:layoutUnit>  
+                <p:layoutUnit position="center" style="z-index:1001">  
+                    <ui:insert name="centro">
+                    </ui:insert>
+                </p:layoutUnit>  
+            </p:layout>  
+        </div>
+    </h:body>
 </html>
