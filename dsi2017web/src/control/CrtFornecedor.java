@@ -12,6 +12,9 @@ import model.Fornecedor;
 @ManagedBean(name = "crtfornecedor")
 @ViewScoped
 public class CrtFornecedor {
+	
+	private String busca = "";
+	
 	@EJB
 	private FornecedorEJBLocal fornecedorEJB;
 
@@ -40,5 +43,13 @@ public class CrtFornecedor {
 	public void remove() {
 		if (model != null)
 			fornecedorEJB.remove(model);
+	}
+
+	public String getBusca() {
+		return busca;
+	}
+
+	public void setBusca(String busca) {
+		this.busca = busca;
 	}
 }

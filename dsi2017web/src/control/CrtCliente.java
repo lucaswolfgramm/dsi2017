@@ -12,6 +12,8 @@ import model.Cliente;
 @ManagedBean(name = "crtcliente")
 @ViewScoped
 public class CrtCliente {
+	private String busca = "";
+	
 	@EJB
 	private ClienteEJBLocal clienteEJB;
 
@@ -26,7 +28,11 @@ public class CrtCliente {
 	}
 
 	public List<Cliente> todosClientes() {
-		return clienteEJB.todosClientes();
+		if(busca.isEmpty()){
+			return clienteEJB.todosClientes();
+		}else{
+			return clienteEJB.todosClientes(busca);
+		}
 	}
 
 	public void insert() {
@@ -40,5 +46,13 @@ public class CrtCliente {
 	public void remove() {
 		if (model != null)
 			clienteEJB.remove(model);
+	}
+
+	public String getBusca() {
+		return busca;
+	}
+
+	public void setBusca(String busca) {
+		this.busca = busca;
 	}
 }

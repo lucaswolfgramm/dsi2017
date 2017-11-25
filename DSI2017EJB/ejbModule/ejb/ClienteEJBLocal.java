@@ -9,4 +9,5 @@ public interface ClienteEJBLocal {
 	public List<Cliente> todosClientes();
 	public void remove(Cliente cliente);
 	public void save(Cliente cliente);
+	public List<Cliente> todosClientes(String busca);
 }

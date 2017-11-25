@@ -24,7 +24,7 @@
 					</p:column>
 					<p:column headerText="Nome">
 	       				<h:outputText value="#{umitem.nome}"/>
-	   				 </p:column>
+	   				</p:column>
 	   					<f:facet name="header">
 	   						<p:toolbar>
 	   							<f:facet name="left">
@@ -58,7 +58,7 @@
 		</h:form>
 		
 		<h:form id="form">
-			<p:dialog width="500" height="300" id="detailItem" modal="true" 
+			<p:dialog width="500" height="300" id="detailItem" modal="false" 
 				header="Dados do Item" widgetVar="dlg1">
 				<h:panelGrid id="formDetail" columns="2"> 
 					
@@ -68,6 +68,14 @@
 					<h:outputLabel value="Nome"/>
 					<p:inputText value="#{crtitem.model.nome}"/>
 					
+					<div class="ui-g-12 ui-md-4">
+        				<div class="ui-inputgroup">
+           					<p:inputText placeholder="Fornecedor ..." />
+           					<p:commandButton icon="fa fa-search"  styleClass="white-button" id="fornecedorInput" onsuccess="PF('dlg1').hide()"
+						action="#{crtfornecedor.todosFornecedores()}" update=":formTable:table"/>  
+        				</div>
+   					</div>
+   					
 					<p:commandButton value="OK"
 						id="cbOK" onsuccess="PF('dlg1').hide()"
 						action="#{crtitem.save()}" update=":formTable:table"/>

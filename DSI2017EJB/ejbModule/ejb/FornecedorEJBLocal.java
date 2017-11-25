@@ -9,4 +9,5 @@ public interface FornecedorEJBLocal {
 	public List<Fornecedor> todosFornecedores();
 	public void remove(Fornecedor fornecedor);
 	public void save(Fornecedor fornecedor);
+	public List<Fornecedor> todosFornecedores(String busca);
 }

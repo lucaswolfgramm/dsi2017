@@ -9,7 +9,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
-@NamedQueries({ @NamedQuery(name = "todosFornecedores", query = "SELECT f FROM Fornecedor f") })
+@NamedQueries({ @NamedQuery(name = "todosFornecedores", query = "SELECT f FROM Fornecedor f"),
+	@NamedQuery(name = "todosFornecedoresNome", query = "SELECT f FROM Fornecedor f where f.nome like :nome"),
+	})
 
 @Entity
 public class Fornecedor {

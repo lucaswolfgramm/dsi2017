@@ -48,4 +48,11 @@ public class ClienteEJB implements ClienteEJBLocal {
 	public void remove(Cliente cliente) {
 		em.remove(em.find(Cliente.class, cliente.getOid()));
 	}
+
+	@Override
+	public List<Cliente> todosClientes(String busca) {
+		Query q = em.createNamedQuery("todosClientesNome");
+		q.setParameter("nome", "%"+busca+"%");
+		return q.getResultList();
+	}
 }

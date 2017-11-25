@@ -17,13 +17,12 @@
             <p:layout style="min-width:1350px;max-width:1320px;min-height:900px">  
                 <p:layoutUnit position="north" size="170">  
                     <h:graphicImage url="https://www.freelogoservices.com/api/main/ph/zjHl2lgef9cYrQL0JFa7kzbw2vuDqRdKmxvO0jp9OXdE9g5shnN1i...Bv9ettdV9dsBUGw0pY" width="160px" height="153px"/>
-                    
                 </p:layoutUnit>  
  
-                <p:layoutUnit position="west" size="220">  
+                <p:layoutUnit position="west" size="265">  
                     <ui:insert name="menu">
                         <h:form>
-                            <p:menu style="width: 200px">
+                            <p:menu style="width: 240px">                            	
                                 <p:submenu label="Menu">
                                 	<p:menuitem value="Clientes" icon="ui-icon-contact" url="FrmCliente.xhtml"/> 
                                     <p:menuitem value="Fornecedor" icon="ui-icon-contact" url="FrmOficina.xhtml"/>
@@ -33,7 +32,6 @@
                                     <p:menuitem value="Orçamento" icon="ui-icon-contact" url="FrmOrcamento.xhtml"/>
                                     <p:menuitem value="Serviço" icon="ui-icon-contact" url="FrmServico.xhtml"/>
                                     <p:menuitem value="Logoff" icon="ui-icon-contact" action="#{crtTemplate.dologoff()}"/>
-                                    
                                 </p:submenu>
                             </p:menu>
                             <h:commandLink value="Relatório Clientes" action="#{crtTemplate.report()}" />
