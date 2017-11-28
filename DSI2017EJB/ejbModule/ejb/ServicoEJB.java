@@ -46,4 +46,11 @@ public class ServicoEJB implements ServicoEJBLocal {
 	public void remove(Servico servico) {
 		em.remove(em.find(Servico.class, servico.getOid()));
 	}
+
+	@Override
+	public List<Servico> todosServicos(String busca) {
+		Query q = em.createNamedQuery("todosServicosNome");
+		q.setParameter("nome", "%"+busca+"%");
+		return q.getResultList();
+	}
 }

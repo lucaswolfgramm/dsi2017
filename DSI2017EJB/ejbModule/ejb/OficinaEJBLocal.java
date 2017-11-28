@@ -9,4 +9,5 @@ public interface OficinaEJBLocal {
 	public List<Oficina> todasOficinas();
 	public void remove(Oficina oficina);
 	public void save(Oficina oficina);
+	public List<Oficina> todasOficinas(String busca);
 }

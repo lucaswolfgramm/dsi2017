@@ -48,4 +48,11 @@ public class FornecedorEJB implements FornecedorEJBLocal {
 	public void remove(Fornecedor fornecedor) {
 		em.remove(em.find(Fornecedor.class, fornecedor.getIdentificador()));
 	}
+
+	@Override
+	public List<Fornecedor> todosFornecedores(String busca) {
+		Query q = em.createNamedQuery("todosFornecedoresNome");
+		q.setParameter("nome", "%"+busca+"%");
+		return q.getResultList();
+	}
 }

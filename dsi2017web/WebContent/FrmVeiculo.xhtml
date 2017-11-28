@@ -35,16 +35,22 @@
 	   					<f:facet name="header">
 	   						<p:toolbar>
 	   							<f:facet name="left">
-			   				 	<p:commandButton value="Incluir" id="cbIncluir"
-			   				 		oncomplete="PF('dlg1').show()" action="#{crtveiculo.insert()}"
-			   				 		update=":form:formDetail"/>
-			   				 		
-			   				 	<p:commandButton value="Alterar" id="cbAlterar"
-			   				 		update=":form:formDetail" icon="ui-icon-extlink"
-			   				 		oncomplete="PF('dlg1').show()"/>	
-			   				 		
-			   				 	<p:commandButton value="Excluir" id="cbExcluir"
-			   				 		icon="ui-icon-extlink" oncomplete="PF('dlgRemove').show()"/>
+				   				 	<p:commandButton value="Incluir" id="cbIncluir"
+				   				 		oncomplete="PF('dlg1').show()" action="#{crtveiculo.insert()}"
+				   				 		update=":form:formDetail"/>
+				   				 		
+				   				 	<p:commandButton value="Alterar" id="cbAlterar"
+				   				 		update=":form:formDetail" icon="ui-icon-extlink"
+				   				 		oncomplete="PF('dlg1').show()"/>	
+				   				 		
+				   				 	<p:commandButton value="Excluir" id="cbExcluir"
+				   				 		icon="ui-icon-extlink" oncomplete="PF('dlgRemove').show()"/>
+				   				 	
+				   				 	<f:facet name="right">
+											<p:inputText placeholder="Digite aqui ..." value="#{crtveiculo.busca}"/>
+											<p:commandButton value="Pesquisar" update=":formTable"/>        
+									</f:facet>
+									
 			   				 	</f:facet>
 	   				 		</p:toolbar>
 	   					</f:facet>

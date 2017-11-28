@@ -49,4 +49,11 @@ public class OficinaEJB implements OficinaEJBLocal {
 	public void remove(Oficina oficina) {
 		em.remove(em.find(Oficina.class, oficina.getIdentificador()));
 	}
+
+	@Override
+	public List<Oficina> todasOficinas(String busca) {
+		Query q = em.createNamedQuery("todasOficinasNome");
+		q.setParameter("nome", "%"+busca+"%");
+		return q.getResultList();
+	}
 }

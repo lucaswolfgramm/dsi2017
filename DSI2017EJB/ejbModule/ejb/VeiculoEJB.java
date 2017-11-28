@@ -48,4 +48,11 @@ public class VeiculoEJB implements VeiculoEJBLocal {
 	public void remove(Veiculo veiculo) {
 		em.remove(em.find(Veiculo.class, veiculo.getIdentificador()));
 	}
+
+	@Override
+	public List<Veiculo> todosVeiculos(String busca) {
+		Query q = em.createNamedQuery("todosVeiculosNome");
+		q.setParameter("nome", "%"+busca+"%");
+		return q.getResultList();
+	}
 }

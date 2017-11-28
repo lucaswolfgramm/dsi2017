@@ -12,6 +12,7 @@ import model.Cliente;
 @ManagedBean(name = "crtcliente")
 @ViewScoped
 public class CrtCliente {
+	
 	private String busca = "";
 	
 	@EJB

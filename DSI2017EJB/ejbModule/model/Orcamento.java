@@ -14,7 +14,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
-@NamedQueries({ @NamedQuery(name = "todosOrcamentos", query = "SELECT g FROM Orcamento g") })
+@NamedQueries({ @NamedQuery(name = "todosOrcamentos", query = "SELECT o FROM Orcamento o"),
+				@NamedQuery(name = "todosOrcamentosNome", query = "SELECT o FROM Orcamento o WHERE o.nome LIKE :nome OR o.identificador like :nome"), })
 
 @Entity
 public class Orcamento {

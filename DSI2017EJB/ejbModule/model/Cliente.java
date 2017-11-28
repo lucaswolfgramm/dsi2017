@@ -11,7 +11,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
 @NamedQueries({ @NamedQuery(name = "todosClientes", query = "SELECT c FROM Cliente c"),
-	@NamedQuery(name = "todosClientesNome", query = "SELECT c FROM Cliente c where c.nome like :nome"),
+				@NamedQuery(name = "todosClientesNome", query = "SELECT c FROM Cliente c WHERE c.nome LIKE :nome OR c.identificador like :nome"),
 	
 })
 

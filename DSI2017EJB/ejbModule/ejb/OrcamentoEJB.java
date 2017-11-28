@@ -48,4 +48,11 @@ public class OrcamentoEJB implements OrcamentoEJBLocal {
 	public void remove(Orcamento orcamento) {
 		em.remove(em.find(Orcamento.class, orcamento.getIdentificador()));
 	}
+
+	@Override
+	public List<Orcamento> todosOrcamentos(String busca) {
+		Query q = em.createNamedQuery("todosOrcamentosNome");
+		q.setParameter("nome", "%"+busca+"%");
+		return q.getResultList();
+	}
 }

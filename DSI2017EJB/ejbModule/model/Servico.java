@@ -7,7 +7,9 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
-@NamedQueries({ @NamedQuery(name = "todosServicos", query = "SELECT g FROM Servico g") })
+@NamedQueries({ @NamedQuery(name = "todosServicos", query = "SELECT s FROM Servico s"),
+				@NamedQuery(name = "todosServicosNome", query = "SELECT s FROM Servico s WHERE s.nome LIKE :nome OR s.identificador like :nome"),
+	 })
 @Entity
 public class Servico {
 	@Id

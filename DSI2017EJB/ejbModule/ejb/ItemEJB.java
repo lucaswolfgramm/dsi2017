@@ -48,4 +48,11 @@ public class ItemEJB implements ItemEJBLocal {
 	public void remove(Item item) {
 		em.remove(em.find(Item.class, item.getOid()));
 	}
+
+	@Override
+	public List<Item> todosItens(String busca) {
+		Query q = em.createNamedQuery("todosItensNome");
+		q.setParameter("nome", "%"+busca+"%");
+		return q.getResultList();
+	}
 }

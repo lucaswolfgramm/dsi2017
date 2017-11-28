@@ -9,7 +9,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
-@NamedQueries({ @NamedQuery(name = "todosProdutos", query = "SELECT g FROM Produto g") })
+@NamedQueries({ @NamedQuery(name = "todosProdutos", query = "SELECT p FROM Produto p"),
+				@NamedQuery(name = "todosProdutosNome", query = "SELECT p FROM Produto p WHERE p.nome LIKE :nome OR p.identificador like :nome"),
+	  })
 
 @Entity
 public class Produto {

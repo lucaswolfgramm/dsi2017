@@ -7,7 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
-@NamedQueries({@NamedQuery(name="todasOficinas", query="SELECT o FROM Oficina o")})
+@NamedQueries({@NamedQuery(name="todasOficinas", query="SELECT o FROM Oficina o"),
+				@NamedQuery(name = "todasOficinasNome", query = "SELECT o FROM Oficina o WHERE o.nomeReal LIKE :nome OR o.nomeFantasia LIKE :nome  OR o.identificador like :nome"),})
 
 @Entity
 public class Oficina {

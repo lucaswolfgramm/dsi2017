@@ -12,6 +12,9 @@ import model.Orcamento;
 @ManagedBean(name = "crtorcamento")
 @ViewScoped
 public class CrtOrcamento {
+	
+	private String busca = "";
+	
 	@EJB
 	private OrcamentoEJBLocal orcamentoEJB;
 
@@ -40,5 +43,13 @@ public class CrtOrcamento {
 	public void remove() {
 		if (model != null)
 			orcamentoEJB.remove(model);
+	}
+
+	public String getBusca() {
+		return busca;
+	}
+
+	public void setBusca(String busca) {
+		this.busca = busca;
 	}
 }

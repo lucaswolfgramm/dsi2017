@@ -12,6 +12,9 @@ import model.Veiculo;
 @ManagedBean(name = "crtveiculo")
 @ViewScoped
 public class CrtVeiculo {
+	
+	private String busca = "";
+	
 	@EJB
 	private VeiculoEJBLocal veiculoEJB;
 
@@ -40,5 +43,13 @@ public class CrtVeiculo {
 	public void remove() {
 		if (model != null)
 			veiculoEJB.remove(model);
+	}
+
+	public String getBusca() {
+		return busca;
+	}
+
+	public void setBusca(String busca) {
+		this.busca = busca;
 	}
 }

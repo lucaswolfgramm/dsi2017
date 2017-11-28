@@ -48,4 +48,11 @@ public class ProdutoEJB implements ProdutoEJBLocal {
 	public void remove(Produto produto) {
 		em.remove(em.find(Produto.class, produto.getIdentificador()));
 	}
+
+	@Override
+	public List<Produto> todosProdutos(String busca) {
+		Query q = em.createNamedQuery("todosProdutosNome");
+		q.setParameter("nome", "%"+busca+"%");
+		return q.getResultList();
+	}
 }

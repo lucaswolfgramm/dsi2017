@@ -9,7 +9,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
-@NamedQueries({ @NamedQuery(name = "todosVeiculos", query = "SELECT g FROM Veiculo g") })
+@NamedQueries({ @NamedQuery(name = "todosVeiculos", query = "SELECT v FROM Veiculo v"),
+				@NamedQuery(name = "todosVeiculosNome", query = "SELECT v FROM Veiculo v WHERE v.nome LIKE :nome OR v.identificador like :nome OR v.placa like :nome OR v.chassis like :nome OR v.marca like :nome"),
+				})
 @Entity
 public class Veiculo {
 
