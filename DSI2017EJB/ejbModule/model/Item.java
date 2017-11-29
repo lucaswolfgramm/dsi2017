@@ -10,7 +10,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
 @NamedQueries({ @NamedQuery(name = "todosItens", query = "SELECT i FROM Item i"), 
-				@NamedQuery(name = "todosItensNome", query = "SELECT i FROM Item i where i.nome like :nome OR i.identificador like :nome"),})
+				@NamedQuery(name = "todosItensNome", query = "SELECT i FROM Item i where i.nome like :nome OR i.identificador like :nome"),
+			})
 
 @Entity
 public class Item {

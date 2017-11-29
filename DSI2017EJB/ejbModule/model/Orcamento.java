@@ -1,7 +1,6 @@
 package model;
 
 import java.util.ArrayList;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,7 +14,8 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 @NamedQueries({ @NamedQuery(name = "todosOrcamentos", query = "SELECT o FROM Orcamento o"),
-				@NamedQuery(name = "todosOrcamentosNome", query = "SELECT o FROM Orcamento o WHERE o.nome LIKE :nome OR o.identificador like :nome"), })
+				@NamedQuery(name = "todosOrcamentosNome", query = "SELECT o FROM Orcamento o WHERE o.nome LIKE :nome OR o.identificador like :nome"),
+			})
 
 @Entity
 public class Orcamento {

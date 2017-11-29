@@ -44,5 +44,23 @@
                 </p:layoutUnit>  
             </p:layout>  
         </div>
+        <h:form id="formLogin">
+				<p:dialog  widgetVar="dlgLogin" resizable="false"  closable="false" modal="true">
+					<h:panelGrid columns="2">
+						<h:outputLabel value="Login"/>
+						<p:inputText id="txtLogin" 
+							value="#{crtTemplate.model.usuario}"/>
+					
+						<h:outputLabel value="Senha"/>
+						<p:password id="txtSenha" 
+							value="#{crtTemplate.model.senha}"/>
+								
+						<p:commandButton value="OK"
+							action="#{crtTemplate.validar()}"/>		
+							
+						
+					</h:panelGrid>
+				</p:dialog>
+		</h:form>
     </h:body>
 </html>

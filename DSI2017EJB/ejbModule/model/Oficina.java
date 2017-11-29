@@ -7,15 +7,16 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
-@NamedQueries({@NamedQuery(name="todasOficinas", query="SELECT o FROM Oficina o"),
-				@NamedQuery(name = "todasOficinasNome", query = "SELECT o FROM Oficina o WHERE o.nomeReal LIKE :nome OR o.nomeFantasia LIKE :nome  OR o.identificador like :nome"),})
+@NamedQueries({ @NamedQuery(name= "todasOficinas", query = "SELECT o FROM Oficina o"),
+				@NamedQuery(name= "todasOficinasNome", query = "SELECT o FROM Oficina o WHERE o.nomeReal LIKE :nome OR o.nomeFantasia LIKE :nome OR o.identificador LIKE :nome"),
+			})
 
 @Entity
 public class Oficina {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long oid;
-	private long identificador;
+	private String identificador;
 	private String nomeReal;
 	private String nomeFantasia;
 	private String cnpj;
@@ -32,11 +33,11 @@ public class Oficina {
 		this.oid = oid;
 	}
 
-	public long getIdentificador() {
+	public String getIdentificador() {
 		return identificador;
 	}
 
-	public void setIdentificador(long identificador) {
+	public void setIdentificador(String identificador) {
 		this.identificador = identificador;
 	}
 

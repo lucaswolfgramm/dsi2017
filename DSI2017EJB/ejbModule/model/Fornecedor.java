@@ -11,7 +11,7 @@ import javax.persistence.NamedQuery;
 
 @NamedQueries({ @NamedQuery(name = "todosFornecedores", query = "SELECT f FROM Fornecedor f"),
 				@NamedQuery(name = "todosFornecedoresNome", query = "SELECT f FROM Fornecedor f where f.nome like :nome OR f.identificador like :nome"),
-	})
+			})
 
 @Entity
 public class Fornecedor {
