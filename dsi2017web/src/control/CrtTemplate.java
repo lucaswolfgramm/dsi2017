@@ -32,7 +32,7 @@ public class CrtTemplate {
 			session.setAttribute("USUARIO_LOGADO", usuario);
 			RequestContext.getCurrentInstance().execute("PF('dlgLogin').hide()");
 		}else{
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "Contact admin."));
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro!", "Usuário e/ou Senha Incorretos"));
 		}
 	}
 
@@ -51,7 +51,7 @@ public class CrtTemplate {
 		session.removeAttribute("USUARIO_LOGADO");
 		ExternalContext ec = fc.getExternalContext();
 		try {
-			ec.redirect("index.xhtml");
+			ec.redirect("template.xhtml");
 		} catch (IOException ex) {
 		}
 	}
@@ -60,7 +60,7 @@ public class CrtTemplate {
 		// ...
 
 		ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
-		externalContext.redirect("http://localhost:8080/DSI2016WEB/printreport?reportName=lista&reportType=PDF");
+		externalContext.redirect("http://localhost:8080/DSI2017WEB/printreport?reportName=lista&reportType=PDF");
 	}
 
 	public Usuario getModel() {
