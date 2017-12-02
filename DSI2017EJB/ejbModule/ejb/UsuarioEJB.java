@@ -1,5 +1,7 @@
 package ejb;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
@@ -40,6 +42,35 @@ public class UsuarioEJB implements UsuarioEJBLocal {
 		} catch (NoResultException e) {
 			return null;
 		}
+	}
+
+	@Override
+	public List<Usuario> todosUsuario() {
+		Query q = em.createNamedQuery("todosUsuarios");
+		return q.getResultList();
+	}
+
+	@Override
+	public void save(Usuario usuario) {
+		if (em.find(Usuario.class, usuario.getOid()) == null) {
+			// insert
+			em.persist(usuario);
+		} else {
+			// update
+			em.merge(usuario);
+		}		
+	}
+	
+	@Override
+	public void remove(Usuario usuario) {
+		em.remove(em.find(Usuario.class, usuario.getOid()));
+	}
+
+	@Override
+	public List<Usuario> todosUsuarios(String busca) {
+		Query q = em.createNamedQuery("todosUsuariosNome");
+		q.setParameter("nome", "%"+busca+"%");
+		return q.getResultList();
 	}
 
 }

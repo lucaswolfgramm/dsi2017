@@ -22,6 +22,8 @@
                 <p:layoutUnit position="west" size="265">  
                     <ui:insert name="menu">
                         <h:form>
+                        
+                        	
                             <p:menu style="width: 240px">                            	
                                 <p:submenu label="Menu">
                                 	<p:menuitem value="Clientes" icon="ui-icon-contact" url="FrmCliente.xhtml"/> 
@@ -45,8 +47,13 @@
             </p:layout>  
         </div>
         <h:form id="formLogin">
+        		
 				<p:dialog  widgetVar="dlgLogin" resizable="false"  closable="false" modal="true">
+					<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+ 
 					<h:panelGrid columns="2">
+						
+					
 						<h:outputLabel value="Login"/>
 						<p:inputText id="txtLogin" 
 							value="#{crtTemplate.model.usuario}"/>

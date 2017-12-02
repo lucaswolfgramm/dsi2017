@@ -1,16 +1,20 @@
 package control;
 
 import java.io.IOException;
+
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
-import model.Usuario;
+
 import org.primefaces.context.RequestContext;
+
 import ejb.UsuarioEJBLocal;
+import model.Usuario;
 
 @ManagedBean(name = "crtTemplate")
 @ViewScoped
@@ -27,8 +31,9 @@ public class CrtTemplate {
 			HttpSession session = (HttpSession) fc.getExternalContext().getSession(true);
 			session.setAttribute("USUARIO_LOGADO", usuario);
 			RequestContext.getCurrentInstance().execute("PF('dlgLogin').hide()");
+		}else{
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "Contact admin."));
 		}
-
 	}
 
 	@PostConstruct
