@@ -6,14 +6,14 @@
   	  xmlns:p="http://primefaces.org/ui">
 	<h:head>
 		<meta charset="UTF-8"/>
-		<title>Cadastro: Veículo</title> <!-- Titulo da Pagina -->
+		<title>Cadastro: Usuário</title> <!-- Titulo da Pagina -->
 	</h:head>
 		<ui:decorate template="template.xhtml">
 			<ui:define name="centro">
 	<body>
 	
 		<h:form id="formTable">
-			<p:panel header="Cadastro: Veículo">
+			<p:panel header="Cadastro: Usuário">
 				<p:dataTable id="table" value="#{crtusuario.todosUsuarios()}"
 						var="umusuario" selectionMode="single"
 						selection="#{crtusuario.model}"
@@ -23,7 +23,7 @@
 						<h:outputText value="#{umusuario.identificador}"/>
 					</p:column>
 					<p:column headerText="Nome">
-	       				<h:outputText value="#{umusuario.nome}"/>
+	       				<h:outputText value="#{umusuario.usuario}"/>
 	   				</p:column>
 	   					<f:facet name="header">
 	   						<p:toolbar>
@@ -65,17 +65,17 @@
 		
 		<h:form id="form">
 			<p:dialog width="500" height="350" id="detailusuario" modal="false" 
-				header="Dados do VeÍculo" widgetVar="dlg1">
+				header="Dados do Usuário" widgetVar="dlg1">
 				<h:panelGrid id="formDetail" columns="2"> 
 					
 					<h:outputLabel value="Identificador"/>
 					<p:inputText value="#{crtusuario.model.identificador}"/>
 					
 					<h:outputLabel value="Nome"/>
-					<p:inputText value="#{crtusuario.model.nome}"/>
+					<p:inputText value="#{crtusuario.model.usuario}"/>
 					
 					<h:outputLabel value="Cliente"/>
-					<p:inputText value="#{crtusuario.model.cliente}"/>
+					<p:inputText value="#{crtusuario.model.senha}"/>
 					
 					<p:commandButton value="OK"
 						id="cbOK" onsuccess="PF('dlg1').hide()"

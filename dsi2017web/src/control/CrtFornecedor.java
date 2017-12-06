@@ -29,9 +29,12 @@ public class CrtFornecedor {
 	}
 
 	public List<Fornecedor> todosFornecedores() {
-		return fornecedorEJB.todosFornecedores();
+		if(busca.isEmpty()){
+			return fornecedorEJB.todosFornecedores();
+		}else{
+			return fornecedorEJB.todosFornecedores(busca);
+		}
 	}
-
 	public void insert() {
 		model = new Fornecedor();
 	}

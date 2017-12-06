@@ -96,5 +96,4 @@ public class Oficina {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
-
 }

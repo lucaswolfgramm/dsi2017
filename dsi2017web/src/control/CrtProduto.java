@@ -29,7 +29,11 @@ public class CrtProduto {
 	}
 
 	public List<Produto> todosProdutos() {
-		return produtoEJB.todosProdutos();
+		if(busca.isEmpty()){
+			return produtoEJB.todosProdutos();
+		}else{
+			return produtoEJB.todosProdutos(busca);
+		}
 	}
 
 	public void insert() {

@@ -29,7 +29,11 @@ public class CrtOficina {
 	}
 
 	public List<Oficina> todasOficinas() {
-		return oficinaEJB.todasOficinas();
+		if(busca.isEmpty()){
+			return oficinaEJB.todasOficinas();
+		}else{
+			return oficinaEJB.todasOficinas(busca);
+		}
 	}
 
 	public void insert() {

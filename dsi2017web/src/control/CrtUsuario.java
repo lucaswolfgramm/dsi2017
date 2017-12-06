@@ -26,7 +26,7 @@ public class CrtUsuario {
 		this.model = model;
 	}
 
-	public List<Usuario> todosUsuario() {
+	public List<Usuario> todosUsuarios() {
 		if(busca.isEmpty()){
 			return usuarioEJB.todosUsuarios();
 		}else{

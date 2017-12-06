@@ -29,7 +29,11 @@ public class CrtItem {
 	}
 
 	public List<Item> todosItens() {
-		return itemEJB.todosItens();
+		if(busca.isEmpty()){
+			return itemEJB.todosItens();
+		}else{
+			return itemEJB.todosItens(busca);
+		}
 	}
 
 	public void insert() {

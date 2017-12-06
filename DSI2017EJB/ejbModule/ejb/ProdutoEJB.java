@@ -17,9 +17,6 @@ import model.Produto;
 @LocalBean
 public class ProdutoEJB implements ProdutoEJBLocal {
 
-	/**
-	 * Default constructor.
-	 */
 	@PersistenceContext(name = "dsi2017context")
 	private EntityManager em;
 

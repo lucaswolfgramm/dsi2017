@@ -29,7 +29,11 @@ public class CrtOrcamento {
 	}
 
 	public List<Orcamento> todosOrcamentos() {
-		return orcamentoEJB.todosOrcamentos();
+		if(busca.isEmpty()){
+			return orcamentoEJB.todosOrcamentos();
+		}else{
+			return orcamentoEJB.todosOrcamentos(busca);
+		}
 	}
 
 	public void insert() {
