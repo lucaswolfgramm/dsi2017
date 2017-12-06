@@ -28,7 +28,7 @@ public class CrtUsuario {
 
 	public List<Usuario> todosUsuario() {
 		if(busca.isEmpty()){
-			return usuarioEJB.todosUsuario();
+			return usuarioEJB.todosUsuarios();
 		}else{
 			return usuarioEJB.todosUsuarios(busca);
 		}

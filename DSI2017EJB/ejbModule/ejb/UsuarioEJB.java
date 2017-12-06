@@ -45,7 +45,7 @@ public class UsuarioEJB implements UsuarioEJBLocal {
 	}
 
 	@Override
-	public List<Usuario> todosUsuario() {
+	public List<Usuario> todosUsuarios() {
 		Query q = em.createNamedQuery("todosUsuarios");
 		return q.getResultList();
 	}

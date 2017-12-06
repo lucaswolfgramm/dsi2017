@@ -73,12 +73,17 @@
 						
 						<h:outputLabel value="Identificador"/>
 						<p:inputText value="#{crtcliente.model.identificador}"/>
-
-						<h:outputLabel value="Nome"/>
-						<p:inputText value="#{crtcliente.model.nome}"/>
 						
-						<h:outputLabel value="Sexo"/>
-						<p:inputText value="#{crtcliente.model.sexo}"/>
+						<h:outputLabel for="name" value="Name:" style="font-weight:bold"/>                    
+			            <p:inputText id="name" value="#{crtcliente.model.nome}" required="true" label="Name"/>
+			            <p:message for="name" display="text"/>
+			            <h:outputText value="#{crtcliente.model.nome}" />
+						
+						<p:outputLabel for="sexo" value="Sexo" />
+				        <p:selectOneRadio id="sexo" value="#{crtcliente.model.sexo}">
+				            <f:selectItem itemLabel="Masculino" itemValue="1" />
+				            <f:selectItem itemLabel="Feminino" itemValue="2" />
+				        </p:selectOneRadio>
 						
 						<h:outputLabel value="Telefone Fixo"/>
 						<p:inputText value="#{crtcliente.model.telefoneFixo}"/>

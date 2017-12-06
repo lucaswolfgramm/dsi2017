@@ -8,9 +8,8 @@ import model.Usuario;
 public interface UsuarioEJBLocal {
 	public void criaUsuario(String usuario, String senha);
 	public Usuario validaUsuario(String usuario, String senha);
-	public List<Usuario> todosUsuario();
+	public List<Usuario> todosUsuarios();
 	public void remove(Usuario usuario);
 	public void save(Usuario usuario);
 	public List<Usuario> todosUsuarios(String busca);
-
 }
